@@ -1,0 +1,73 @@
+<script setup>
+import { onMounted } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+onMounted(() => {
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    gsap.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%' } })
+  })
+})
+</script>
+
+<template>
+<section class="pt-32 pb-12 text-center">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="section-tag">行业方案</div>
+    <h1 class="section-title">为多行业场景量身打造</h1>
+    <p class="section-subtitle mx-auto">每个行业都有专属的AI解决方案，精准解决痛点</p>
+  </div>
+</section>
+
+<section class="py-12">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div id="hair" class="card animate-on-scroll">
+        <div class="text-5xl mb-4">🍽️</div>
+        <h3 class="text-xl font-bold mb-3">餐饮行业方案</h3>
+        <p class="text-text-secondary text-sm leading-relaxed mb-4">AI精准定位附近食客、智能排班减少空档、AR菜单体验提升客单、会员自动触发复购。</p>
+        <ul class="space-y-2 text-text-muted text-sm"><li>✓ LBS附近获客——锁定方圆3公里目标客群</li><li>✓ AI套餐推荐——个性化推荐提升客单价</li><li>✓ 智能预约排班——自动匹配客流高峰减少等待</li></ul>
+      </div>
+      <div id="beauty" class="card animate-on-scroll">
+        <div class="text-5xl mb-4">🏠</div>
+        <h3 class="text-xl font-bold mb-3">家政服务方案</h3>
+        <p class="text-text-secondary text-sm leading-relaxed mb-4">AI需求分析带入服务项目、服务评价追踪建立信任、消费行为分析精准推送、自动化私域运营。</p>
+        <ul class="space-y-2 text-text-muted text-sm"><li>✓ AI需求分析——智能匹配客户需求与服务</li><li>✓ 服务效果追踪——评价体系增强客户信任</li><li>✓ 私域自动化运营——微信群+小程序自动触达</li></ul>
+      </div>
+      <div id="wig" class="card animate-on-scroll">
+        <div class="text-5xl mb-4">🛒</div>
+        <h3 class="text-xl font-bold mb-3">零售门店方案</h3>
+        <p class="text-text-secondary text-sm leading-relaxed mb-4">AI需求匹配推荐产品、虚拟试用/试穿降低退换、UGC内容自动分发转化、复购周期智能提醒。</p>
+        <ul class="space-y-2 text-text-muted text-sm"><li>✓ AI需求匹配——智能筛选精准推荐产品</li><li>✓ 虚拟试用/试穿——在线预览降低退换率60%</li><li>✓ 复购周期管理——智能提醒购买周期</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-blue-500/3">
+  <div class="max-w-[1200px] mx-auto px-6 text-center">
+    <span class="section-tag">数据看板</span>
+    <h2 class="section-title">一站式数据驾驶舱</h2>
+    <p class="section-subtitle mx-auto mb-10">所有经营数据一目了然，AI驱动智能决策</p>
+    <div class="max-w-[900px] mx-auto">
+      <div class="card animate-on-scroll border-blue-500 p-0 overflow-hidden">
+        <div class="demo-bar"><span class="demo-dot"></span><span class="demo-dot"></span><span class="demo-dot"></span></div>
+        <div class="p-6 grid grid-cols-4 gap-4">
+          <div class="text-center p-4 bg-green-500/8 rounded-xl"><div class="text-2xl font-black text-green-400">1,247</div><div class="text-xs text-text-muted mt-1">今日到店</div></div>
+          <div class="text-center p-4 bg-blue-500/8 rounded-xl"><div class="text-2xl font-black text-blue-400">¥128K</div><div class="text-xs text-text-muted mt-1">今日营收</div></div>
+          <div class="text-center p-4 bg-cyan-500/8 rounded-xl"><div class="text-2xl font-black text-cyan-400">72%</div><div class="text-xs text-text-muted mt-1">复购率</div></div>
+          <div class="text-center p-4 bg-orange-500/8 rounded-xl"><div class="text-2xl font-black text-orange-400">+38%</div><div class="text-xs text-text-muted mt-1">月增长</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 text-center">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <h2 class="section-title">准备好让AI驱动你的获客了吗？</h2>
+    <p class="text-text-secondary mb-8">免费体验或预约一对一演示</p>
+    <RouterLink to="/contact" class="btn-primary">立即免费体验</RouterLink>
+  </div>
+</section>
+</template>

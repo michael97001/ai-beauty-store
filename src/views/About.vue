@@ -1,0 +1,47 @@
+<script setup>
+import { onMounted } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+onMounted(() => {
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    gsap.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%' } })
+  })
+})
+</script>
+
+<template>
+<section class="pt-32 pb-12 text-center">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="section-tag">关于我们</div>
+    <h1 class="section-title">用AI重新定义百业获客</h1>
+    <p class="section-subtitle mx-auto max-w-[600px]">我们是一支由AI工程师、行业专家和数据科学家组成的团队，致力于用最前沿的AI技术帮助企业商户解决获客难题。</p>
+  </div>
+</section>
+
+<section class="py-12">
+  <div class="max-w-[800px] mx-auto px-6 space-y-6">
+    <div class="card animate-on-scroll">
+      <h3 class="text-lg font-bold mb-3">🎯 我们的使命</h3>
+      <p class="text-text-secondary leading-relaxed">让每一家企业商户都能享受AI带来的获客效率提升和业绩增长，不分规模、不分地区。我们坚信技术应该为实体经济赋能。</p>
+    </div>
+    <div class="card animate-on-scroll">
+      <h3 class="text-lg font-bold mb-3">💡 核心优势</h3>
+      <ul class="text-text-secondary space-y-2">
+        <li>✓ 行业深耕——覆盖餐饮、零售、教育、美业、家政、健身、婚庆、医疗多行业，更懂你的需求</li>
+        <li>✓ AI驱动——自研模型，持续迭代优化</li>
+        <li>✓ 数据安全——AES-256加密，国密合规</li>
+        <li>✓ 本地服务——专属顾问全程陪跑落地</li>
+      </ul>
+    </div>
+    <div class="card animate-on-scroll">
+      <h3 class="text-lg font-bold mb-3">📊 数据说话</h3>
+      <div class="grid grid-cols-3 gap-6 text-center mt-4">
+        <div><div class="text-3xl font-black gradient-text">3000+</div><div class="text-xs text-text-muted mt-1">合作门店</div></div>
+        <div><div class="text-3xl font-black gradient-text">50+</div><div class="text-xs text-text-muted mt-1">城市覆盖</div></div>
+        <div><div class="text-3xl font-black gradient-text">99.9%</div><div class="text-xs text-text-muted mt-1">系统稳定性</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</template>
